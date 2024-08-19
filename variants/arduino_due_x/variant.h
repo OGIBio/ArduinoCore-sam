@@ -55,10 +55,10 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (79u)
-#define NUM_DIGITAL_PINS     (66u)
+#define PINS_COUNT           (87u)	// Changed from 79u to 87u
+#define NUM_DIGITAL_PINS     (74u)	// Changed from 66 to 74
 #define NUM_ANALOG_INPUTS    (12u)
-#define analogInputToDigitalPin(p)  ((p < 12u) ? (p) + 54u : -1)
+#define analogInputToDigitalPin(p)  ((p < 12u) ? (p) + 74u : -1)  // Changed from 54u to 74u
 
 #define digitalPinToPort(P)        ( g_APinDescription[P].pPort )
 #define digitalPinToBitMask(P)     ( g_APinDescription[P].ulPin )
@@ -90,8 +90,8 @@ extern "C"{
 
 // LEDs
 #define PIN_LED_13           (13u)
-#define PIN_LED_RXL          (72u)
-#define PIN_LED_TXL          (73u)
+#define PIN_LED_RXL          (92u) // Changed from 72u to 92u
+#define PIN_LED_TXL          (93u) // Changed from 73u to 93u
 #define PIN_LED              PIN_LED_13
 #define PIN_LED2             PIN_LED_RXL
 #define PIN_LED3             PIN_LED_TXL
@@ -105,13 +105,13 @@ extern "C"{
 #define SPI_INTERFACE        SPI0
 #define SPI_INTERFACE_ID     ID_SPI0
 #define SPI_CHANNELS_NUM 4
-#define PIN_SPI_SS0          (77u)
-#define PIN_SPI_SS1          (87u)
-#define PIN_SPI_SS2          (86u)
-#define PIN_SPI_SS3          (78u)
-#define PIN_SPI_MOSI         (75u)
-#define PIN_SPI_MISO         (74u)
-#define PIN_SPI_SCK          (76u)
+#define PIN_SPI_SS0          (97u) // Changed from 77u to 97u
+#define PIN_SPI_SS1          (107u) // Changed from 87u to 107u
+#define PIN_SPI_SS2          (106u) // Changed from 86u to 106u
+#define PIN_SPI_SS3          (98u) // Changed from 78u to 98u
+#define PIN_SPI_MOSI         (75u) // Changed from 75u to 95u
+#define PIN_SPI_MISO         (94u) // Changed from 74u to 94u
+#define PIN_SPI_SCK          (96u) // Changed from 76u to 96u
 #define BOARD_SPI_SS0        (10u)
 #define BOARD_SPI_SS1        (4u)
 #define BOARD_SPI_SS2        (52u)
@@ -147,8 +147,8 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 #define WIRE_ISR_HANDLER     TWI1_Handler
 #define WIRE_ISR_ID          TWI1_IRQn
 
-#define PIN_WIRE1_SDA        (70u)
-#define PIN_WIRE1_SCL        (71u)
+#define PIN_WIRE1_SDA        (90u) // Changed from 70u to 90u
+#define PIN_WIRE1_SCL        (91u) // Changed from 71u to 91u
 #define WIRE1_INTERFACE      TWI0
 #define WIRE1_INTERFACE_ID   ID_TWI0
 #define WIRE1_ISR_HANDLER    TWI0_Handler
@@ -163,50 +163,75 @@ static const uint8_t SCL1 = PIN_WIRE1_SCL;
  * UART/USART Interfaces
  */
 // Serial
-#define PINS_UART            (81u)
+#define PINS_UART            (101u) // Changed from 81u to 101u
 // Serial1
-#define PINS_USART0          (82u)
+#define PINS_USART0          (102u) // Changed from 82u to 102u
 // Serial2
-#define PINS_USART1          (83u)
+#define PINS_USART1          (103u) // Changed from 83u to 103u
 // Serial3
-#define PINS_USART3          (84u)
+#define PINS_USART3          (104u) // Changed from 84u to 104u
 
 /*
  * USB Interfaces
  */
-#define PINS_USB             (85u)
+#define PINS_USB             (105u) // Changed from 85u to 105u
+
+/*
+ * Unmapped pins (extra pins in OGI Board) // Added test pins definitions
+ */
+#define TP1 (54u)
+#define TP2 (55u)
+#define TP3 (56u)
+#define TP4 (57u)
+#define TP5 (58u)
+#define TP6 (59u)
+#define TP7 (60u)
+#define TP8 (61u)
+#define TP9 (62u)
+#define TP10 (63u)
+#define TP11 (64u)
+#define TP12 (65u)
+#define TP13 (66u)
+#define TP14 (67u)
+#define TP15 (68u)
+#define TP16 (69u)
+#define TP17 (70u)
+#define TP18 (71u)
+#define TP19 (72u)
+#define TP20 (73u)
+
 
 /*
  * Analog pins
  */
-static const uint8_t A0  = 54;
-static const uint8_t A1  = 55;
-static const uint8_t A2  = 56;
-static const uint8_t A3  = 57;
-static const uint8_t A4  = 58;
-static const uint8_t A5  = 59;
-static const uint8_t A6  = 60;
-static const uint8_t A7  = 61;
-static const uint8_t A8  = 62;
-static const uint8_t A9  = 63;
-static const uint8_t A10 = 64;
-static const uint8_t A11 = 65;
-static const uint8_t DAC0 = 66;
-static const uint8_t DAC1 = 67;
-static const uint8_t CANRX = 68;
-static const uint8_t CANTX = 69;
+static const uint8_t A0  = 74; // Changed from 54 to 74
+static const uint8_t A1  = 75; // Changed from 55 to 75
+static const uint8_t A2  = 76; // Changed from 56 to 76
+static const uint8_t A3  = 77; // Changed from 57 to 77
+static const uint8_t A4  = 78; // Changed from 58 to 78
+static const uint8_t A5  = 79; // Changed from 59 to 79
+static const uint8_t A6  = 80; // Changed from 60 to 80
+static const uint8_t A7  = 81; // Changed from 61 to 81
+static const uint8_t A8  = 82; // Changed from 62 to 82
+static const uint8_t A9  = 83; // Changed from 63 to 83
+static const uint8_t A10 = 84; // Changed from 64 to 84
+static const uint8_t A11 = 85; // Changed from 65 to 85
+static const uint8_t DAC0 = 86; // Changed from 66 to 86
+static const uint8_t DAC1 = 87; // Changed from 67 to 87
+static const uint8_t CANRX = 88; // Changed from 68 to 88
+static const uint8_t CANTX = 89; // Changed from 69 to 89
 #define ADC_RESOLUTION		12
 
 /*
  * Complementary CAN pins
  */
-static const uint8_t CAN1RX = 88;
-static const uint8_t CAN1TX = 89;
+static const uint8_t CAN1RX = 108; // Changed from 88 to 108
+static const uint8_t CAN1TX = 109; // Changed from 89 to 109
 
 // CAN0
-#define PINS_CAN0            (90u)
+#define PINS_CAN0            (110u) // Changed from 90u to 110u
 // CAN1
-#define PINS_CAN1            (91u)
+#define PINS_CAN1            (111u) // Changed from 91u to 111u
 
 
 /*
